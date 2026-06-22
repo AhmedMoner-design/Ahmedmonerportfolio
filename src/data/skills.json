@@ -1,0 +1,82 @@
+{
+  "designSkills": [
+    {
+      "name": "UI Design",
+      "icon": "Layout"
+    },
+    {
+      "name": "UX Design",
+      "icon": "Search"
+    },
+    {
+      "name": "Wireframing",
+      "icon": "PenTool"
+    },
+    {
+      "name": "Prototyping",
+      "icon": "Smartphone"
+    },
+    {
+      "name": "User Research",
+      "icon": "Search"
+    },
+    {
+      "name": "Design Systems",
+      "icon": "Layers"
+    },
+    {
+      "name": "Responsive Design",
+      "icon": "Monitor"
+    },
+    {
+      "name": "Interaction Design",
+      "icon": "Code"
+    }
+  ],
+  "tools": [
+    {
+      "name": "Figma",
+      "proficiency": 95
+    },
+    {
+      "name": "Adobe XD",
+      "proficiency": 80
+    },
+    {
+      "name": "Photoshop",
+      "proficiency": 85
+    },
+    {
+      "name": "Illustrator",
+      "proficiency": 75
+    },
+    {
+      "name": "HTML/CSS",
+      "proficiency": 70
+    },
+    {
+      "name": "AI Tools",
+      "proficiency": 80
+    }
+  ],
+  "experience": [
+    {
+      "role": "Freelance UI/UX Designer",
+      "company": "Self-Employed",
+      "period": "2025 - Present",
+      "description": "Delivering end-to-end design solutions for startups and small businesses. Specializing in mobile app design and brand identity systems."
+    },
+    {
+      "role": "UI/UX Intern",
+      "company": "DEPI",
+      "period": "Nov 2025 - Present",
+      "description": "Collaborating with senior designers on client projects. Contributing to product designs, conducting user research, and creating high-fidelity prototypes."
+    },
+    {
+      "role": "UX Design Certificate",
+      "company": "Google / Coursera",
+      "period": "2025",
+      "description": "Completed Google's professional UX Design Certificate. Mastered the full design thinking process from research to final deliverables."
+    }
+  ]
+}

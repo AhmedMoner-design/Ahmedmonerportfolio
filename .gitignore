@@ -1,0 +1,7 @@
+node_modules
+admin.html
+admin.bat
+deploy.bat
+server.js
+server.cjs
+.deploy-status
