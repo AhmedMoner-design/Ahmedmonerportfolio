@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { ArrowDown, Sparkles } from "lucide-react";
-import heroPhoto from "figma:asset/d3bb474b9b5937c0f2348684af028d314ecf37f4.png";
+import aboutData from "../../data/about.json";
 
 export function Hero() {
   const handleScroll = (href: string) => {
@@ -41,7 +41,7 @@ export function Hero() {
           >
             <Sparkles size={14} className="text-primary" />
             <span className="text-[0.8rem] text-primary">
-              Available for new opportunities
+              {aboutData.statusBadge}
             </span>
           </motion.div>
 
@@ -52,8 +52,8 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="font-['Space_Grotesk'] text-[clamp(2.5rem,8vw,5.5rem)] tracking-tight text-foreground leading-[1.05] mb-4"
           >
-            Ahmed{" "}
-            <span className="text-primary">Moner</span>
+            {aboutData.name}{" "}
+            <span className="text-primary">{aboutData.lastName}</span>
           </motion.h1>
 
           {/* Role */}
@@ -63,7 +63,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="text-[clamp(1rem,2.5vw,1.375rem)] text-muted-foreground mb-6 tracking-wide uppercase"
           >
-            UI/UX Designer
+            {aboutData.role}
           </motion.p>
 
           {/* Tagline */}
@@ -73,9 +73,8 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.7 }}
             className="max-w-2xl mx-auto lg:mx-0 text-[clamp(0.95rem,1.8vw,1.125rem)] text-muted-foreground/80 leading-relaxed mb-12"
           >
-            I craft digital experiences that users love. Blending aesthetics with
-            usability to create interfaces that don't just look beautiful —{" "}
-            <span className="text-foreground">they work beautifully.</span>
+            {aboutData.tagline}{" "}
+            <span className="text-foreground">{aboutData.taglineHighlight}</span>
           </motion.p>
 
           {/* CTAs */}
@@ -123,8 +122,8 @@ export function Hero() {
             {/* Inner container */}
             <div className="w-full h-full rounded-full overflow-hidden bg-background p-[3px]">
               <motion.img
-                src={heroPhoto}
-                alt="Ahmed Moner"
+                src={aboutData.heroPhoto}
+                alt={`${aboutData.name} ${aboutData.lastName}`}
                 className="w-full h-full rounded-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.4 }}

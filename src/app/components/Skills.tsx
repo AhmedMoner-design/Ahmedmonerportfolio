@@ -1,7 +1,6 @@
 import { motion } from "motion/react";
 import { useInView } from "./hooks/useInView";
 import {
-  Figma,
   PenTool,
   Layout,
   Monitor,
@@ -10,51 +9,17 @@ import {
   Code,
   Layers,
 } from "lucide-react";
+import skillsData from "../../data/skills.json";
 
-const designSkills = [
-  { name: "UI Design", icon: Layout },
-  { name: "UX Design", icon: Search },
-  { name: "Wireframing", icon: PenTool },
-  { name: "Prototyping", icon: Smartphone },
-  { name: "User Research", icon: Search },
-  { name: "Design Systems", icon: Layers },
-  { name: "Responsive Design", icon: Monitor },
-  { name: "Interaction Design", icon: Code },
-];
-
-const tools = [
-  { name: "Figma", proficiency: 95 },
-  { name: "Adobe XD", proficiency: 80 },
-  { name: "Photoshop", proficiency: 85 },
-  { name: "Illustrator", proficiency: 75 },
-  { name: "After Effects", proficiency: 60 },
-  { name: "HTML/CSS", proficiency: 70 },
-  { name: "AI Tools", proficiency: 80 },
-];
-
-const experience = [
-  {
-    role: "Freelance UI/UX Designer",
-    company: "Self-Employed",
-    period: "2025 - Present",
-    description:
-      "Delivering end-to-end design solutions for startups and small businesses. Specializing in mobile app design and brand identity systems.",
-  },
-  {
-    role: "UI/UX Intern",
-    company: "DEPI",
-    period: "Nov 2025 - Present",
-    description:
-      "Collaborating with senior designers on client projects. Contributing to product designs, conducting user research, and creating high-fidelity prototypes.",
-  },
-  {
-    role: "UX Design Certificate",
-    company: "Google / Coursera",
-    period: "2025",
-    description:
-      "Completed Google's professional UX Design Certificate. Mastered the full design thinking process from research to final deliverables.",
-  },
-];
+const iconMap = {
+  Layout,
+  Search,
+  PenTool,
+  Smartphone,
+  Layers,
+  Monitor,
+  Code,
+};
 
 export function Skills() {
   const { ref, isInView } = useInView(0.1);
@@ -94,23 +59,26 @@ export function Skills() {
                 Design Skills
               </h3>
               <div className="grid grid-cols-2 gap-3">
-                {designSkills.map((skill, i) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.4, delay: 0.3 + i * 0.05 }}
-                    className="flex items-center gap-3 p-3.5 rounded-xl border border-glass-border bg-glass-bg hover:border-primary/20 hover:bg-primary/[0.02] transition-all duration-300 group"
-                  >
-                    <skill.icon
-                      size={16}
-                      className="text-muted-foreground group-hover:text-primary transition-colors"
-                    />
-                    <span className="text-[0.85rem] text-muted-foreground group-hover:text-foreground transition-colors">
-                      {skill.name}
-                    </span>
-                  </motion.div>
-                ))}
+                {skillsData.designSkills.map((skill, i) => {
+                  const Icon = iconMap[skill.icon as keyof typeof iconMap];
+                  return (
+                    <motion.div
+                      key={skill.name}
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={isInView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.4, delay: 0.3 + i * 0.05 }}
+                      className="flex items-center gap-3 p-3.5 rounded-xl border border-glass-border bg-glass-bg hover:border-primary/20 hover:bg-primary/[0.02] transition-all duration-300 group"
+                    >
+                      <Icon
+                        size={16}
+                        className="text-muted-foreground group-hover:text-primary transition-colors"
+                      />
+                      <span className="text-[0.85rem] text-muted-foreground group-hover:text-foreground transition-colors">
+                        {skill.name}
+                      </span>
+                    </motion.div>
+                  );
+                })}
               </div>
             </motion.div>
 
@@ -124,7 +92,7 @@ export function Skills() {
                 Tools & Software
               </h3>
               <div className="space-y-4">
-                {tools.map((tool, i) => (
+                {skillsData.tools.map((tool, i) => (
                   <motion.div
                     key={tool.name}
                     initial={{ opacity: 0, x: -20 }}
@@ -171,7 +139,7 @@ export function Skills() {
               <div className="absolute left-0 top-2 bottom-2 w-px bg-glass-divider" />
 
               <div className="space-y-8">
-                {experience.map((exp, i) => (
+                {skillsData.experience.map((exp, i) => (
                   <motion.div
                     key={exp.role}
                     initial={{ opacity: 0, x: 20 }}

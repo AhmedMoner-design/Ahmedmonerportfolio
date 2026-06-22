@@ -1,11 +1,7 @@
 import { motion } from "motion/react";
 import { useInView } from "./hooks/useInView";
 import { Mail, MapPin, ArrowUpRight } from "lucide-react";
-
-const socials = [
-  { name: "LinkedIn", url: "https://www.linkedin.com/in/ahmed-moner1", icon: "in" },
-  { name: "Behance", url: "https://www.behance.net/ahmed_moner1", icon: "Be" },
-];
+import contactData from "../../data/contact.json";
 
 export function Contact() {
   const { ref, isInView } = useInView(0.1);
@@ -54,7 +50,7 @@ export function Contact() {
                   Email
                 </p>
                 <p className="text-[0.9rem] text-foreground">
-                  ahmedmonierr1@gmail.com
+                  {contactData.email}
                 </p>
               </div>
             </div>
@@ -67,7 +63,7 @@ export function Contact() {
                   Location
                 </p>
                 <p className="text-[0.9rem] text-foreground">
-                  Available Worldwide (Remote)
+                  {contactData.location}
                 </p>
               </div>
             </div>
@@ -79,7 +75,7 @@ export function Contact() {
               Find me on
             </p>
             <div className="flex gap-3">
-              {socials.map((social) => (
+              {contactData.socials.map((social) => (
                 <a
                   key={social.name}
                   href={social.url}
@@ -111,8 +107,9 @@ export function Contact() {
               See my resume for a summary of my skills and experience.
             </p>
             <a
-              href="https://docs.google.com/document/d/1O-sAu_6YLGX4bqXwqaxY86WtPRF7GKNQ/edit?usp=sharing&ouid=102583379876820286935&rtpof=true&sd=true"
+              href={contactData.resumeUrl}
               target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-[0.85rem] text-primary hover:text-primary/80 transition-colors"
             >
               Resume
